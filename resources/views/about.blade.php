@@ -25,20 +25,9 @@
                 <div class="space-y-8">
                     <div>
                         <h2 class="mb-4 text-2xl font-bold text-white">Who I Am</h2>
-                        <p class="mb-4 text-lg leading-relaxed text-slate-300">
-                            I'm a passionate full-stack developer with a love for creating elegant solutions to complex problems.
-                            My journey in web development started with curiosity and has evolved into a career dedicated to
-                            building meaningful digital experiences.
-                        </p>
-                        <p class="mb-4 text-lg leading-relaxed text-slate-300">
-                            I believe in writing clean, maintainable code and always staying up-to-date with the latest
-                            technologies and best practices. Every project is an opportunity to learn something new and
-                            push the boundaries of what's possible.
-                        </p>
-                        <p class="text-lg leading-relaxed text-slate-300">
-                            When I'm not coding, you'll find me exploring new technologies, contributing to open-source
-                            projects, or sharing knowledge with the developer community.
-                        </p>
+                        <div class="mb-4 text-lg leading-relaxed text-slate-300 space-y-3">
+                            {!! $personalinfo?->long_bio !!}
+                        </div>
                     </div>
 
                     <div>
@@ -88,7 +77,9 @@
                         <div class="space-y-4">
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                                 <span class="text-slate-400">Full Name</span>
-                                <span class="font-medium text-white">Karsang Thapa Magar</span>
+                                <span class="font-medium text-white">
+                                    {{ $personalinfo ? $personalinfo->first_name . ' ' . $personalinfo->last_name : 'N/A' }}
+                                </span>
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                                 <span class="text-slate-400">Location</span>
@@ -96,18 +87,31 @@
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                                 <span class="text-slate-400">Email</span>
-                                <a href="mailto:karsangmagar19@gmail.com" class="font-medium text-emerald-400 transition hover:text-emerald-300">
-                                    karsangmagar19@gmail.com
-                                </a>
+                                @if ($personalinfo?->email)
+                                    <a href="mailto:{{ $personalinfo->email }}" class="font-medium text-emerald-400 transition hover:text-emerald-300">
+                                        {{ $personalinfo->email }}
+                                    </a>
+                                @else
+                                    <span class="font-medium text-slate-400">N/A</span>
+                                @endif
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                                 <span class="text-slate-400">Phone</span>
-                                <a href="tel:+9779803665780" class="font-medium text-white">+977-9803665780</a>
+                                @if ($personalinfo?->phone)
+                                    <a href="tel:{{ $personalinfo->phone }}" class="font-medium text-white">
+                                        {{ $personalinfo->phone }}
+                                    </a>
+                                @else
+                                    <span class="font-medium text-slate-400">N/A</span>
+                                @endif
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-slate-400">Availability</span>
-                                <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-medium text-emerald-400">
-                                    Open to work
+                                @php
+                                    $available = $personalinfo?->is_available ?? true;
+                                @endphp
+                                <span class="rounded-full px-3 py-1 text-xs font-medium {{ $available ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-700/40 text-slate-300' }}">
+                                    {{ $available ? 'Open to work' : 'Not available' }}
                                 </span>
                             </div>
                         </div>
@@ -115,20 +119,33 @@
 
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
                         <h2 class="mb-6 text-2xl font-bold text-white">Education</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <h3 class="mb-1 font-semibold text-white">Bachelor's Degree</h3>
-                                <p class="mb-2 text-sm text-emerald-400">Computer Science / Information Technology</p>
-                                <p class="text-sm text-slate-400">University Name</p>
-                                <p class="text-sm text-slate-400">2018 - 2022</p>
-                            </div>
-                            <div>
-                                <h3 class="mb-1 font-semibold text-white">High School</h3>
-                                <p class="mb-2 text-sm text-emerald-400">Science Stream</p>
-                                <p class="text-sm text-slate-400">School Name</p>
-                                <p class="text-sm text-slate-400">2016 - 2018</p>
-                            </div>
+                        <div class="space-y-4">
+                            @forelse ($educations ?? [] as $education)
+                                <div class="rounded-xl border border-white/10 bg-slate-900/40 p-4">
+                                    <h3 class="mb-1 text-base font-semibold text-white">
+                                        {{ $education->degree_name }}
+                                    </h3>
+                                    <p class="mb-1 text-sm text-emerald-400">
+                                        {{ $education->university_name }}
+                                    </p>
+                                    <p class="mb-2 text-xs text-slate-400">
+                                        {{ $education->start_date }}
+                                        -
+                                        {{ $education->is_current ? 'Present' : $education->end_date }}
+                                    </p>
+                                    @if (! empty($education->description))
+                                        <p class="text-sm text-slate-300">
+                                            {{ $education->description }}
+                                        </p>
+                                    @endif
+                                </div>
+                            @empty
+                                <p class="text-sm text-slate-400">
+                                    Education details will be added soon.
+                                </p>
+                            @endforelse
                         </div>
+                            
                     </div>
                 </div>
             </div>

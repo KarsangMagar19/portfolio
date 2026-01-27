@@ -25,7 +25,25 @@
                 {{-- Contact Form --}}
                 <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
                     <h2 class="mb-6 text-2xl font-bold text-white">Send a Message</h2>
-                    <form action="#" method="POST" class="space-y-6">
+
+                    @if (session('success'))
+                        <div class="mb-4 rounded-lg bg-emerald-500/20 px-4 py-3 text-sm text-emerald-200">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                            <ul class="list-disc space-y-1 pl-5">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('messageme.store') }}" method="POST" class="space-y-6">
+                        @csrf
                         <div>
                             <label for="name" class="mb-2 block text-sm font-medium text-slate-300">
                                 Name
@@ -50,6 +68,19 @@
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 placeholder="your.email@example.com"
+                            />
+                        </div>
+                        <div>
+                            <label for="mobile" class="mb-2 block text-sm font-medium text-slate-300">
+                                Mobile
+                            </label>
+                            <input
+                                type="text"
+                                id="mobile"
+                                name="mobile"
+                                required
+                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                placeholder="Your phone number"
                             />
                         </div>
                         <div>

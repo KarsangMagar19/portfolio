@@ -26,13 +26,15 @@
         {{-- Content --}}
         <div class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
             <div class="text-center">
-                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400 backdrop-blur-sm">
-                    <span class="relative flex h-2 w-2">
-                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-                    </span>
-                    Available for opportunities
-                </div>
+                @if ($personalinfo && $personalinfo->is_available)
+                    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400 backdrop-blur-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                        </span>
+                        Available for opportunities
+                    </div>
+                @endif
                 <h1 class="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
                     Hi, I'm
                     <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
@@ -76,14 +78,9 @@
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
                 <div>
                     <p class="mb-4 text-lg leading-relaxed text-slate-300">
-                        I'm a dedicated developer with a passion for creating elegant solutions to complex problems.
-                        My journey in web development has been driven by curiosity and a commitment to continuous learning.
+                        {{$personalinfo->short_bio}}
                     </p>
-                    <p class="mb-6 text-lg leading-relaxed text-slate-300">
-                        I specialize in building modern, responsive web applications that not only look great but also
-                        perform exceptionally well. Every project is an opportunity to push boundaries and deliver
-                        exceptional user experiences.
-                    </p>
+                
                     <a
                         href="{{ route('about') }}"
                         class="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
@@ -105,7 +102,9 @@
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-slate-400">Available:</span>
-                                    <span class="font-medium text-emerald-400">Open to work</span>
+                                    <span class="font-medium {{ ($personalinfo && $personalinfo->is_available) ? 'text-emerald-400' : 'text-slate-400' }}">
+                                        {{ ($personalinfo && $personalinfo->is_available) ? 'Open to work' : 'Not available' }}
+                                    </span>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-slate-400">Email:</span>

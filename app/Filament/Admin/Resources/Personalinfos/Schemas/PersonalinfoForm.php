@@ -6,6 +6,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class PersonalinfoForm
@@ -31,6 +32,9 @@ class PersonalinfoForm
                 TextInput::make('phone')
                     ->tel()
                     ->required(),
+                Toggle::make('is_available')
+                    ->label('Available for opportunities')
+                    ->default(true),
                 FileUpload::make('image')
                     ->columnSpanFull()
                     ->image()

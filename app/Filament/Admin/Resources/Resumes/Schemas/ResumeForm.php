@@ -16,7 +16,8 @@ class ResumeForm
                     ->columnSpanFull()
                     ->acceptedFileTypes(['application/pdf'])
                     ->maxSize(1024)
-                    ->required()
+                    ->disk('public') // Store in public disk
+                    ->visibility('public')
                     ->required(),
             ]);
     }

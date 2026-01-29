@@ -16,10 +16,12 @@ class ProjectsTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                TextColumn::make('short_description')
-                    ->searchable(),
                 TextColumn::make('category')
                     ->searchable(),
+                TextColumn::make('description')
+                    ->html()
+                    ->searchable()
+                    ->limit(50),
                 TextColumn::make('live_url')
                     ->searchable(),
                 TextColumn::make('github_url')

@@ -30,6 +30,11 @@ class ResumesTable
             ])
             ->recordActions([
                 EditAction::make(),
+                \Filament\Actions\Action::make('view')
+                    ->label('View Resume')
+                    ->icon('heroicon-o-eye')
+                    ->url(fn($record) => route('admin.resume.view', $record))
+                    ->openUrlInNewTab(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

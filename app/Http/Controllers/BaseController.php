@@ -14,11 +14,13 @@ class BaseController extends Controller
     public function __construct()
     {
         $personalinfo = Personalinfo::first();
-        $experience = Experience::first();
+        $latestExperiences = Experience::orderByDesc('start_date')
+            ->limit(2)
+            ->get();
         $projects = Project::first();
         $education = Education::first();
         view()->share(['personalinfo' => $personalinfo]);
-        view()->share(['experience' => $experience]);
+        view()->share(['latestExperiences' => $latestExperiences]);
         view()->share(['projects' => $projects]);
         view()->share(['education' => $education]);
     }

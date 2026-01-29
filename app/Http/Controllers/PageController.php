@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Experience;
+use App\Models\Technologies;
 use App\Models\Personalinfo;
 use App\Models\Project;
 use App\Models\Education;
@@ -12,7 +13,8 @@ class PageController extends BaseController
 {
     public function homepage()
     {
-        return view('home');
+        $randomProjects = Project::inRandomOrder()->limit(3)->get();
+        return view('home', compact('randomProjects'));
     }
 
     public function aboutpage()
@@ -20,7 +22,7 @@ class PageController extends BaseController
         $educations = Education::orderByDesc('start_date')->get();
 
         return view('about', compact('educations'));
-        
+
     }
 
 
@@ -28,8 +30,9 @@ class PageController extends BaseController
     public function experiencepage()
     {
         $experience = Experience::all();
+        $technologies = Technologies::all();
 
-        return view('experience', compact('experience'));
+        return view('experience', compact('experience', 'technologies'));
     }
 
     public function projectspage()
@@ -41,7 +44,7 @@ class PageController extends BaseController
 
     public function contactpage()
     {
-            $contact = Contact::all();
+        $contact = Contact::all();
 
         return view('contact', compact('contact'));
     }
@@ -65,5 +68,5 @@ class PageController extends BaseController
         Messageme::create($validated);
 
         return redirect()->back()->with('success', 'Message sent successfully');
-    }  
+    }
 }

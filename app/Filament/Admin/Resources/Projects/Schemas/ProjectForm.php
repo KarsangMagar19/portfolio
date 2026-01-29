@@ -20,7 +20,7 @@ class ProjectForm
                     ->required(),
                 Textarea::make('short_description')
                     ->columnspanfull()
-                    ->required(),
+                    ->nullable(),
                 RichEditor::make('description')
                     ->required()
                     ->columnSpanFull(),

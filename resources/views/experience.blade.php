@@ -26,125 +26,45 @@
 
                 {{-- Experience Items --}}
                 <div class="space-y-12">
-                    {{-- Experience 1 --}}
-                    <div class="relative flex gap-8 md:gap-12">
-                        <div class="flex w-full flex-col md:flex-row md:items-center">
-                            <div class="md:w-1/2 md:pr-8 md:text-right">
-                                <div class="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-medium text-emerald-400">
-                                    2022 - Present
-                                </div>
-                                <h3 class="mb-2 text-2xl font-bold text-white">Senior Full Stack Developer</h3>
-                                <p class="mb-4 text-lg text-emerald-400">Company Name</p>
-                                <p class="text-slate-300">
-                                    Leading development of modern web applications using cutting-edge technologies.
-                                    Collaborating with cross-functional teams to deliver high-quality solutions.
-                                </p>
-                                <ul class="mt-4 space-y-2 text-slate-400">
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Architected and developed scalable web applications</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Mentored junior developers and conducted code reviews</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Optimized application performance and reduced load times by 40%</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="relative mt-6 flex items-center md:mt-0 md:w-1/2 md:pl-8">
-                                <div class="absolute left-0 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-slate-950 bg-emerald-500 md:left-1/2"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Experience 2 --}}
-                    <div class="relative flex gap-8 md:gap-12">
-                        <div class="flex w-full flex-col md:flex-row md:items-center">
-                            <div class="relative mt-6 flex items-center md:mt-0 md:w-1/2 md:pr-8">
-                                <div class="absolute right-0 top-1/2 h-4 w-4 translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-slate-950 bg-emerald-500 md:left-0 md:right-auto md:translate-x-0"></div>
-                            </div>
-                            <div class="md:w-1/2 md:pl-8">
-                                <div class="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-medium text-emerald-400">
-                                    2020 - 2022
-                                </div>
-                                <h3 class="mb-2 text-2xl font-bold text-white">Full Stack Developer</h3>
-                                <p class="mb-4 text-lg text-emerald-400">Previous Company</p>
-                                <p class="text-slate-300">
-                                    Developed and maintained multiple web applications from concept to deployment.
-                                    Implemented responsive designs and optimized application performance.
-                                </p>
-                                <ul class="mt-4 space-y-2 text-slate-400">
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Built RESTful APIs and integrated third-party services</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Collaborated with designers to implement pixel-perfect UIs</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Improved code quality through testing and refactoring</span>
-                                    </li>
-                                </ul>
+                    @foreach ($experience as $index => $item)
+                        <div class="relative flex gap-8 md:gap-12">
+                            <div class="flex w-full flex-col md:flex-row md:items-center">
+                                @if ($index % 2 == 0)
+                                    {{-- Left Side Content (Even) --}}
+                                    <div class="md:w-1/2 md:pr-8 md:text-right">
+                                        <div class="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-medium text-emerald-400">
+                                            {{ $item->start_date }} - {{ $item->is_current ? 'Present' : $item->end_date }}
+                                        </div>
+                                        <h3 class="mb-2 text-2xl font-bold text-white">{{ $item->title }}</h3>
+                                        <p class="mb-4 text-lg text-emerald-400">{{ $item->company }}</p>
+                                        <div class="text-slate-300 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1">
+                                            {!! $item->description !!}
+                                        </div>
+                                    </div>
+                                    {{-- Center Dot (Even) --}}
+                                    <div class="relative mt-6 flex items-center md:mt-0 md:w-1/2 md:pl-8">
+                                        <div class="absolute left-0 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-slate-950 bg-emerald-500 md:left-1/2"></div>
+                                    </div>
+                                @else
+                                    {{-- Center Dot (Odd) --}}
+                                    <div class="relative mt-6 flex items-center md:mt-0 md:w-1/2 md:pr-8">
+                                        <div class="absolute right-0 top-1/2 h-4 w-4 translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-slate-950 bg-emerald-500 md:left-0 md:right-auto md:translate-x-0"></div>
+                                    </div>
+                                    {{-- Right Side Content (Odd) --}}
+                                    <div class="md:w-1/2 md:pl-8">
+                                        <div class="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-medium text-emerald-400">
+                                            {{ $item->start_date }} - {{ $item->is_current ? 'Present' : $item->end_date }}
+                                        </div>
+                                        <h3 class="mb-2 text-2xl font-bold text-white">{{ $item->title }}</h3>
+                                        <p class="mb-4 text-lg text-emerald-400">{{ $item->company }}</p>
+                                        <div class="text-slate-300 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1">
+                                            {!! $item->description !!}
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
-                    </div>
-
-                    {{-- Experience 3 --}}
-                    <div class="relative flex gap-8 md:gap-12">
-                        <div class="flex w-full flex-col md:flex-row md:items-center">
-                            <div class="md:w-1/2 md:pr-8 md:text-right">
-                                <div class="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-medium text-emerald-400">
-                                    2018 - 2020
-                                </div>
-                                <h3 class="mb-2 text-2xl font-bold text-white">Junior Developer</h3>
-                                <p class="mb-4 text-lg text-emerald-400">Startup Company</p>
-                                <p class="text-slate-300">
-                                    Started my professional journey working on various web projects.
-                                    Learned industry best practices and modern development workflows.
-                                </p>
-                                <ul class="mt-4 space-y-2 text-slate-400">
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Developed frontend components using modern frameworks</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Participated in agile development processes</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <svg class="mt-1 h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Contributed to open-source projects</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="relative mt-6 flex items-center md:mt-0 md:w-1/2 md:pl-8">
-                                <div class="absolute left-0 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-slate-950 bg-emerald-500 md:left-1/2"></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -160,21 +80,10 @@
                 <div class="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
             </div>
             <div class="flex flex-wrap justify-center gap-3">
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Laravel</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">PHP</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">React</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Vue.js</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Next.js</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">TypeScript</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">JavaScript</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Tailwind CSS</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">MySQL</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">PostgreSQL</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">MongoDB</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Docker</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">Git</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">AWS</span>
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">CI/CD</span>
+                @foreach ($technologies as $technology)
+                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">{{ $technology->title}}</span>
+                @endforeach 
+                
             </div>
         </div>
     </section>

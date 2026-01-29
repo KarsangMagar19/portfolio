@@ -2,24 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Illuminate\Support\Facades\Response;
 
 class CvDownloadController extends Controller
 {
     /**
-     * Stream the CV file for download (file path configured for admin upload later).
+     * Download the latest resume from the database.
      */
-    public function __invoke(Request $request): StreamedResponse|\Illuminate\Http\Response
+    public function __invoke(Request $request)
     {
-        $path = config('portfolio.cv_path');
-        $name = config('portfolio.cv_download_name');
+        // Get the latest resume from the database
+        $resume = Resume::latest()->first();
 
-        if (! Storage::disk('public')->exists($path)) {
-            abort(404, 'CV not available.');
+        if (!$resume) {
+            abort(404, 'Resume not available.');
         }
 
-        return Storage::disk('public')->download($path, $name);
+        // Check if file exists in public disk first
+        if (Storage::disk('public')->exists($resume->Resume_file_name)) {
+            return Storage::disk('public')->download($resume->Resume_file_name, 'Resume.pdf');
+        }
+
+        // Fall back to private disk for old files
+        if (Storage::disk('local')->exists($resume->Resume_file_name)) {
+            $path = Storage::disk('local')->path($resume->Resume_file_name);
+            return Response::download($path, 'Resume.pdf');
+        }
+
+        abort(404, 'Resume file not found.');
     }
 }

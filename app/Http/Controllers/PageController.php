@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Experience;
+use App\Models\Skill;
 use App\Models\Technologies;
 use App\Models\Personalinfo;
 use App\Models\Project;
@@ -14,7 +15,8 @@ class PageController extends BaseController
     public function homepage()
     {
         $randomProjects = Project::inRandomOrder()->limit(3)->get();
-        return view('home', compact('randomProjects'));
+        $skills = Skill::orderBy('name')->get();
+        return view('home', compact('randomProjects', 'skills'));
     }
 
     public function aboutpage()
@@ -40,6 +42,13 @@ class PageController extends BaseController
         $projects = Project::all();
 
         return view('projects', compact('projects'));
+    }
+
+    public function skillspage()
+    {
+        $skills = Skill::orderBy('name')->get();
+
+        return view('skills', compact('skills'));
     }
 
     public function contactpage()

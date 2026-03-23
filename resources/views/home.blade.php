@@ -271,47 +271,33 @@
                     class="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent">
                 </div>
             </div>
+            @php
+                $categoryConfig = [
+                    'Frontend Development' => ['emoji' => '💻', 'label' => 'Frontend'],
+                    'Backend Development'  => ['emoji' => '⚙️', 'label' => 'Backend'],
+                    'Database & Storage'   => ['emoji' => '🗄️', 'label' => 'Database'],
+                    'Tools & Technologies' => ['emoji' => '🛠️', 'label' => 'Tools'],
+                ];
+                $grouped = isset($skills) ? $skills->groupBy('category') : collect();
+            @endphp
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                <div
-                    class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
-                    <div class="mb-4 flex justify-center">
-                        <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
-                            💻
+                @foreach($categoryConfig as $catName => $config)
+                    <div class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
+                        <div class="mb-4 flex justify-center">
+                            <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
+                                {{ $config['emoji'] }}
+                            </div>
                         </div>
+                        <h3 class="mb-2 font-semibold text-white">{{ $config['label'] }}</h3>
+                        <p class="text-sm text-slate-400">
+                            @if($grouped->has($catName))
+                                {{ $grouped[$catName]->pluck('name')->join(', ') }}
+                            @else
+                                No skills added yet
+                            @endif
+                        </p>
                     </div>
-                    <h3 class="mb-2 font-semibold text-white">Frontend</h3>
-                    <p class="text-sm text-slate-400">React, Vue.js, Next.js, Tailwind CSS</p>
-                </div>
-                <div
-                    class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
-                    <div class="mb-4 flex justify-center">
-                        <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
-                            ⚙️
-                        </div>
-                    </div>
-                    <h3 class="mb-2 font-semibold text-white">Backend</h3>
-                    <p class="text-sm text-slate-400">Laravel, PHP, Node.js, Express</p>
-                </div>
-                <div
-                    class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
-                    <div class="mb-4 flex justify-center">
-                        <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
-                            🗄️
-                        </div>
-                    </div>
-                    <h3 class="mb-2 font-semibold text-white">Database</h3>
-                    <p class="text-sm text-slate-400">MySQL, PostgreSQL, MongoDB</p>
-                </div>
-                <div
-                    class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
-                    <div class="mb-4 flex justify-center">
-                        <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
-                            🛠️
-                        </div>
-                    </div>
-                    <h3 class="mb-2 font-semibold text-white">Tools</h3>
-                    <p class="text-sm text-slate-400">Git, Docker, AWS, CI/CD</p>
-                </div>
+                @endforeach
             </div>
             <div class="mt-8 text-center">
                 <a href="{{ route('skills') }}"

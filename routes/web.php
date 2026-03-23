@@ -11,7 +11,7 @@ Route::get('/', [PageController::class, 'homepage'])->name('home');
 Route::get('/about', [PageController::class, 'aboutpage'])->name('about');
 Route::get('/experience', [PageController::class, 'experiencepage'])->name('experience');
 Route::get('/projects', [PageController::class, 'projectspage'])->name('projects');
-Route::view('/skills', 'skills')->name('skills');
+Route::get('/skills', [PageController::class, 'skillspage'])->name('skills');
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/messageme', fn() => redirect()->route('contact'));
 Route::get('/cv', CvDownloadController::class)->name('cv.download');

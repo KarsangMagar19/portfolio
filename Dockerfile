@@ -1,15 +1,14 @@
 FROM php:8.2-cli
 
-# Install system dependencies
+# Install PHP extensions needed for your Laravel app
 RUN apt-get update && apt-get install -y \
     unzip \
     zip \
-    libzip-dev \
     libicu-dev \
+    libzip-dev \
     git \
     curl
 
-# Install PHP extensions
 RUN docker-php-ext-install intl zip pdo pdo_mysql
 
 # Install Composer
@@ -24,11 +23,8 @@ COPY . .
 # Install dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Generate key (optional if already set)
-RUN php artisan key:generate || true
-
 # Expose port
 EXPOSE 8080
 
-# Start Laravel
+# Use PHP built-in server pointing to Laravel's public folder
 CMD php -S 0.0.0.0:8080 -t public

@@ -5,12 +5,14 @@
         <div class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
             <div class="text-center">
                 <h1 class="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                    Get In
+                    <span class="lang-text" data-en="Get In" data-np="सम्पर्कमा">Get In</span>
                     <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-                        Touch
+                        <span class="lang-text" data-en="Touch" data-np="आउनुहोस्">Touch</span>
                     </span>
                 </h1>
-                <p class="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl">
+                <p class="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl lang-text"
+                    data-en="Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together."
+                    data-np="कुनै परियोजना मनमा छ वा सहकार्य गर्न चाहनुहुन्छ? म तपाईंसँग सुन्न उत्सुक छु। सँगै केही अद्भुत बनाऊँ।">
                     Have a project in mind or want to collaborate? I'd love to hear from you.
                     Let's create something amazing together.
                 </p>
@@ -24,7 +26,7 @@
             <div class="grid gap-12 lg:grid-cols-2">
                 {{-- Contact Form --}}
                 <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-                    <h2 class="mb-6 text-2xl font-bold text-white">Send a Message</h2>
+                    <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Send a Message" data-np="सन्देश पठाउनुहोस्">Send a Message</h2>
 
                     @if (session('success'))
                         <div class="mb-4 rounded-lg bg-emerald-500/20 px-4 py-3 text-sm text-emerald-200">
@@ -45,7 +47,7 @@
                     <form action="{{ route('messageme.store') }}" method="POST" class="space-y-6">
                         @csrf
                         <div>
-                            <label for="name" class="mb-2 block text-sm font-medium text-slate-300">
+                            <label for="name" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Name" data-np="नाम">
                                 Name
                             </label>
                             <input
@@ -54,11 +56,13 @@
                                 name="name"
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                data-placeholder-en="Your name"
+                                data-placeholder-np="तपाईंको नाम"
                                 placeholder="Your name"
                             />
                         </div>
                         <div>
-                            <label for="email" class="mb-2 block text-sm font-medium text-slate-300">
+                            <label for="email" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Email" data-np="इमेल">
                                 Email
                             </label>
                             <input
@@ -71,7 +75,7 @@
                             />
                         </div>
                         <div>
-                            <label for="mobile" class="mb-2 block text-sm font-medium text-slate-300">
+                            <label for="mobile" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Mobile" data-np="मोबाइल">
                                 Mobile
                             </label>
                             <input
@@ -80,11 +84,13 @@
                                 name="mobile"
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                data-placeholder-en="Your phone number"
+                                data-placeholder-np="तपाईंको फोन नम्बर"
                                 placeholder="Your phone number"
                             />
                         </div>
                         <div>
-                            <label for="subject" class="mb-2 block text-sm font-medium text-slate-300">
+                            <label for="subject" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Subject" data-np="विषय">
                                 Subject
                             </label>
                             <input
@@ -93,11 +99,13 @@
                                 name="subject"
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                data-placeholder-en="What's this about?"
+                                data-placeholder-np="यो के बारेमा हो?"
                                 placeholder="What's this about?"
                             />
                         </div>
                         <div>
-                            <label for="message" class="mb-2 block text-sm font-medium text-slate-300">
+                            <label for="message" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Message" data-np="सन्देश">
                                 Message
                             </label>
                             <textarea
@@ -106,12 +114,16 @@
                                 rows="6"
                                 required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                data-placeholder-en="Tell me about your project or idea..."
+                                data-placeholder-np="आफ्नो परियोजना वा विचारबारे बताउनुहोस्..."
                                 placeholder="Tell me about your project or idea..."
                             ></textarea>
                         </div>
                         <button
                             type="submit"
-                            class="w-full rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                            class="w-full rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 lang-text"
+                            data-en="Send Message"
+                            data-np="सन्देश पठाउनुहोस्"
                         >
                             Send Message
                         </button>
@@ -121,8 +133,10 @@
                 {{-- Contact Info --}}
                 <div class="space-y-8">
                     <div>
-                        <h2 class="mb-6 text-2xl font-bold text-white">Contact Information</h2>
-                        <p class="mb-8 text-slate-300">
+                        <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Contact Information" data-np="सम्पर्क जानकारी">Contact Information</h2>
+                        <p class="mb-8 text-slate-300 lang-text"
+                            data-en="Feel free to reach out through any of these channels. I typically respond within 24 hours."
+                            data-np="यी मध्ये कुनै पनि च्यानलबाट निःसंकोच सम्पर्क गर्नुहोस्। म सामान्यतया २४ घण्टाभित्र प्रतिक्रिया दिन्छु।">
                             Feel free to reach out through any of these channels. I typically respond within 24 hours.
                         </p>
                     </div>
@@ -139,7 +153,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white">Email</h3>
+                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Email" data-np="इमेल">Email</h3>
                                 <p class="text-slate-300">karsangmagar19@gmail.com</p>
                             </div>
                         </a>
@@ -155,7 +169,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white">Phone</h3>
+                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Phone" data-np="फोन">Phone</h3>
                                 <p class="text-slate-300">+977-9803665780</p>
                             </div>
                         </a>
@@ -169,7 +183,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white">Location</h3>
+                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Location" data-np="स्थान">Location</h3>
                                 <p class="text-slate-300">Kathmandu, Nepal</p>
                             </div>
                         </div>
@@ -177,7 +191,7 @@
 
                     {{-- Social Links --}}
                     <div class="pt-6">
-                        <h3 class="mb-4 text-lg font-semibold text-white">Connect on Social Media</h3>
+                        <h3 class="mb-4 text-lg font-semibold text-white lang-text" data-en="Connect on Social Media" data-np="सामाजिक सञ्जालमा जोडिनुहोस्">Connect on Social Media</h3>
                         <div class="flex gap-3">
                             <a
                                 href="https://github.com"

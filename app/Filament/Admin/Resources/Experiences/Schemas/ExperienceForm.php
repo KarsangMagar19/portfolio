@@ -14,11 +14,20 @@ class ExperienceForm
     {
         return $schema
             ->components([
-
                 TextInput::make('title')
+                    ->label('Title (English)')
                     ->required(),
+                TextInput::make('title_np')
+                    ->label('Title (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the job title.'),
                 TextInput::make('company')
+                    ->label('Company (English)')
                     ->required(),
+                TextInput::make('company_np')
+                    ->label('Company (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the company name.'),
                 DatePicker::make('start_date')
                     ->date()
                     ->required(),
@@ -31,7 +40,13 @@ class ExperienceForm
                     ->nullable()
                     ->disabled(fn ($get) => $get('is_current') === true),
                 RichEditor::make('description')
+                    ->label('Description (English)')
                     ->required()
+                    ->columnSpanFull(),
+                RichEditor::make('description_np')
+                    ->label('Description (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the job description.')
                     ->columnSpanFull(),
             ]);
     }

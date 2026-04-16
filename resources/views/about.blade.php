@@ -5,12 +5,14 @@
         <div class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
             <div class="text-center">
                 <h1 class="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                    About
+                    <span class="lang-text" data-en="About" data-np="मेरो बारेमा">About</span>
                     <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-                        Me
+                        <span class="lang-text" data-en="Me" data-np="">Me</span>
                     </span>
                 </h1>
-                <p class="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl">
+                <p class="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl lang-text"
+                    data-en="Get to know more about my journey, passion, and what drives me as a developer."
+                    data-np="मेरो यात्रा, जोश र के कुराले मलाई एक डेभलपरको रूपमा अघि बढाउँछ भनी थप जान्नुहोस्।">
                     Get to know more about my journey, passion, and what drives me as a developer.
                 </p>
             </div>
@@ -24,14 +26,17 @@
                 {{-- Left Column --}}
                 <div class="space-y-8">
                     <div>
-                        <h2 class="mb-4 text-2xl font-bold text-white">Who I Am</h2>
-                        <div class="mb-4 text-lg leading-relaxed text-slate-300 space-y-3">
+                        <h2 class="mb-4 text-2xl font-bold text-white lang-text" data-en="Who I Am" data-np="म को हुँ">Who I Am</h2>
+                        <div class="mb-4 text-lg leading-relaxed text-slate-300 space-y-3 lang-text"
+                            data-html="true"
+                            data-en="{{ $personalinfo?->long_bio }}"
+                            data-np="{{ $personalinfo?->long_bio_np ?: $personalinfo?->long_bio }}">
                             {!! $personalinfo?->long_bio !!}
                         </div>
                     </div>
 
                     <div>
-                        <h2 class="mb-4 text-2xl font-bold text-white">My Approach</h2>
+                        <h2 class="mb-4 text-2xl font-bold text-white lang-text" data-en="My Approach" data-np="मेरो तरिका">My Approach</h2>
                         <div class="space-y-4">
                             <div class="flex gap-4">
                                 <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
@@ -40,8 +45,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="mb-1 font-semibold text-white">Problem Solving</h3>
-                                    <p class="text-slate-300">I approach every challenge with a systematic mindset, breaking down complex problems into manageable solutions.</p>
+                                    <h3 class="mb-1 font-semibold text-white lang-text" data-en="Problem Solving" data-np="समस्या समाधान">Problem Solving</h3>
+                                    <p class="text-slate-300 lang-text"
+                                        data-en="I approach every challenge with a systematic mindset, breaking down complex problems into manageable solutions."
+                                        data-np="म हरेक चुनौतीलाई व्यवस्थित मानसिकताले सामना गर्छु, जटिल समस्याहरूलाई व्यवस्थापनयोग्य समाधानमा विभाजन गर्दै।">I approach every challenge with a systematic mindset, breaking down complex problems into manageable solutions.</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
@@ -51,8 +58,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="mb-1 font-semibold text-white">Performance First</h3>
-                                    <p class="text-slate-300">I prioritize performance and user experience, ensuring applications are fast, responsive, and accessible.</p>
+                                    <h3 class="mb-1 font-semibold text-white lang-text" data-en="Performance First" data-np="प्रदर्शन प्राथमिकता">Performance First</h3>
+                                    <p class="text-slate-300 lang-text"
+                                        data-en="I prioritize performance and user experience, ensuring applications are fast, responsive, and accessible."
+                                        data-np="म प्रदर्शन र प्रयोगकर्ता अनुभवलाई प्राथमिकता दिन्छु, एप्लिकेसनहरू छिटो, उत्तरदायी र पहुँचयोग्य छन् भनी सुनिश्चित गर्दै।">I prioritize performance and user experience, ensuring applications are fast, responsive, and accessible.</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
@@ -62,8 +71,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="mb-1 font-semibold text-white">Continuous Learning</h3>
-                                    <p class="text-slate-300">The tech world evolves rapidly, and I'm committed to staying current with new tools, frameworks, and methodologies.</p>
+                                    <h3 class="mb-1 font-semibold text-white lang-text" data-en="Continuous Learning" data-np="निरन्तर सिकाइ">Continuous Learning</h3>
+                                    <p class="text-slate-300 lang-text"
+                                        data-en="The tech world evolves rapidly, and I'm committed to staying current with new tools, frameworks, and methodologies."
+                                        data-np="प्रविधि संसार तीव्र गतिमा विकसित हुँदैछ, र म नयाँ उपकरणहरू, फ्रेमवर्कहरू र विधिहरूसँग अपडेट रहन प्रतिबद्ध छु।">The tech world evolves rapidly, and I'm committed to staying current with new tools, frameworks, and methodologies.</p>
                                 </div>
                             </div>
                         </div>
@@ -73,20 +84,20 @@
                 {{-- Right Column --}}
                 <div class="space-y-8">
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-                        <h2 class="mb-6 text-2xl font-bold text-white">Personal Info</h2>
+                        <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Personal Info" data-np="व्यक्तिगत जानकारी">Personal Info</h2>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="text-slate-400">Full Name</span>
+                                <span class="text-slate-400 lang-text" data-en="Full Name" data-np="पूरा नाम">Full Name</span>
                                 <span class="font-medium text-white">
                                     {{ $personalinfo ? $personalinfo->first_name . ' ' . $personalinfo->last_name : 'N/A' }}
                                 </span>
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="text-slate-400">Location</span>
+                                <span class="text-slate-400 lang-text" data-en="Location" data-np="स्थान">Location</span>
                                 <span class="font-medium text-white">Kathmandu, Nepal</span>
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="text-slate-400">Email</span>
+                                <span class="text-slate-400 lang-text" data-en="Email" data-np="इमेल">Email</span>
                                 @if ($personalinfo?->email)
                                     <a href="mailto:{{ $personalinfo->email }}" class="font-medium text-emerald-400 transition hover:text-emerald-300">
                                         {{ $personalinfo->email }}
@@ -96,7 +107,7 @@
                                 @endif
                             </div>
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="text-slate-400">Phone</span>
+                                <span class="text-slate-400 lang-text" data-en="Phone" data-np="फोन">Phone</span>
                                 @if ($personalinfo?->phone)
                                     <a href="tel:{{ $personalinfo->phone }}" class="font-medium text-white">
                                         {{ $personalinfo->phone }}
@@ -106,11 +117,14 @@
                                 @endif
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-slate-400">Availability</span>
+                                <span class="text-slate-400 lang-text" data-en="Availability" data-np="उपलब्धता">Availability</span>
                                 @php
                                     $available = $personalinfo?->is_available ?? true;
                                 @endphp
-                                <span class="rounded-full px-3 py-1 text-xs font-medium {{ $available ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-700/40 text-slate-300' }}">
+                                <span class="rounded-full px-3 py-1 text-xs font-medium lang-text
+                                    {{ $available ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-700/40 text-slate-300' }}"
+                                    data-en="{{ $available ? 'Open to work' : 'Not available' }}"
+                                    data-np="{{ $available ? 'काम गर्न तयार' : 'उपलब्ध छैन' }}">
                                     {{ $available ? 'Open to work' : 'Not available' }}
                                 </span>
                             </div>
@@ -118,29 +132,39 @@
                     </div>
 
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-                        <h2 class="mb-6 text-2xl font-bold text-white">Education</h2>
+                        <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Education" data-np="शिक्षा">Education</h2>
                         <div class="space-y-4">
                             @forelse ($educations ?? [] as $education)
                                 <div class="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                                    <h3 class="mb-1 text-base font-semibold text-white">
+                                    <h3 class="mb-1 text-base font-semibold text-white lang-text"
+                                        data-en="{{ $education->degree_name }}"
+                                        data-np="{{ $education->degree_name_np ?: $education->degree_name }}">
                                         {{ $education->degree_name }}
                                     </h3>
-                                    <p class="mb-1 text-sm text-emerald-400">
+                                    <p class="mb-1 text-sm text-emerald-400 lang-text"
+                                        data-en="{{ $education->university_name }}"
+                                        data-np="{{ $education->university_name_np ?: $education->university_name }}">
                                         {{ $education->university_name }}
                                     </p>
                                     <p class="mb-2 text-xs text-slate-400">
                                         {{ $education->start_date }}
                                         -
-                                        {{ $education->is_current ? 'Present' : $education->end_date }}
+                                        <span class="lang-text"
+                                            data-en="{{ $education->is_current ? 'Present' : $education->end_date }}"
+                                            data-np="{{ $education->is_current ? 'हालसालै' : $education->end_date }}">{{ $education->is_current ? 'Present' : $education->end_date }}</span>
                                     </p>
                                     @if (! empty($education->description))
-                                        <p class="text-sm text-slate-300">
+                                        <p class="text-sm text-slate-300 lang-text"
+                                            data-en="{{ $education->description }}"
+                                            data-np="{{ $education->description_np ?: $education->description }}">
                                             {{ $education->description }}
                                         </p>
                                     @endif
                                 </div>
                             @empty
-                                <p class="text-sm text-slate-400">
+                                <p class="text-sm text-slate-400 lang-text"
+                                    data-en="Education details will be added soon."
+                                    data-np="शिक्षाको विवरण चाँडै थपिनेछ।">
                                     Education details will be added soon.
                                 </p>
                             @endforelse
@@ -156,7 +180,7 @@
     <section class="bg-slate-950 py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="Interests & Hobbies" data-np="रुचि र शौकहरू">
                     Interests & Hobbies
                 </h2>
                 <div class="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
@@ -168,8 +192,10 @@
                             📚
                         </div>
                     </div>
-                    <h3 class="mb-2 font-semibold text-white">Reading</h3>
-                    <p class="text-sm text-slate-400">Tech blogs, documentation, and programming books</p>
+                    <h3 class="mb-2 font-semibold text-white lang-text" data-en="Reading" data-np="पढाइ">Reading</h3>
+                    <p class="text-sm text-slate-400 lang-text"
+                        data-en="Tech blogs, documentation, and programming books"
+                        data-np="प्रविधि ब्लगहरू, कागजातहरू र प्रोग्रामिङ पुस्तकहरू">Tech blogs, documentation, and programming books</p>
                 </div>
                 <div class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
                     <div class="mb-4 flex justify-center">
@@ -177,8 +203,10 @@
                             🎮
                         </div>
                     </div>
-                    <h3 class="mb-2 font-semibold text-white">Gaming</h3>
-                    <p class="text-sm text-slate-400">Strategy games and puzzle solving</p>
+                    <h3 class="mb-2 font-semibold text-white lang-text" data-en="Gaming" data-np="गेमिङ">Gaming</h3>
+                    <p class="text-sm text-slate-400 lang-text"
+                        data-en="Strategy games and puzzle solving"
+                        data-np="रणनीति खेलहरू र पहेली समाधान">Strategy games and puzzle solving</p>
                 </div>
                 <div class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
                     <div class="mb-4 flex justify-center">
@@ -186,8 +214,10 @@
                             🎵
                         </div>
                     </div>
-                    <h3 class="mb-2 font-semibold text-white">Music</h3>
-                    <p class="text-sm text-slate-400">Exploring new genres and artists</p>
+                    <h3 class="mb-2 font-semibold text-white lang-text" data-en="Music" data-np="संगीत">Music</h3>
+                    <p class="text-sm text-slate-400 lang-text"
+                        data-en="Exploring new genres and artists"
+                        data-np="नयाँ शैलीहरू र कलाकारहरू खोज्दै">Exploring new genres and artists</p>
                 </div>
                 <div class="group rounded-xl border border-white/10 bg-white/5 p-6 text-center transition hover:border-emerald-500/30 hover:bg-white/10">
                     <div class="mb-4 flex justify-center">
@@ -195,8 +225,10 @@
                             🚴
                         </div>
                     </div>
-                    <h3 class="mb-2 font-semibold text-white">Fitness</h3>
-                    <p class="text-sm text-slate-400">Staying active and healthy</p>
+                    <h3 class="mb-2 font-semibold text-white lang-text" data-en="Fitness" data-np="स्वास्थ्य">Fitness</h3>
+                    <p class="text-sm text-slate-400 lang-text"
+                        data-en="Staying active and healthy"
+                        data-np="सक्रिय र स्वस्थ रहने">Staying active and healthy</p>
                 </div>
             </div>
         </div>

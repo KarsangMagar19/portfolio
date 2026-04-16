@@ -16,13 +16,25 @@ class ProjectForm
         return $schema
             ->components([
                 TextInput::make('title')
+                    ->label('Title (English)')
                     ->columnspanfull()
                     ->required(),
+                TextInput::make('title_np')
+                    ->label('Title (नेपाली)')
+                    ->columnspanfull()
+                    ->nullable()
+                    ->helperText('Nepali translation of the project title.'),
                 Textarea::make('short_description')
                     ->columnspanfull()
                     ->nullable(),
                 RichEditor::make('description')
+                    ->label('Description (English)')
                     ->required()
+                    ->columnSpanFull(),
+                RichEditor::make('description_np')
+                    ->label('Description (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the project description.')
                     ->columnSpanFull(),
                 Select::make('category')
                     ->options([

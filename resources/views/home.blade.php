@@ -53,23 +53,25 @@
                                 class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                             <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
                         </span>
-                        Available for opportunities
+                        <span class="lang-text" data-en="Available for opportunities" data-np="अवसरका लागि उपलब्ध">Available for opportunities</span>
                     </div>
                 @endif
                 <h1 class="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                    Hi, I'm
+                    <span class="lang-text" data-en="Hi, I'm" data-np="नमस्ते, म हुँ">Hi, I'm</span>
                     <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
                         Karsang Thapa Magar
                     </span>
                 </h1>
-                <p class="mx-auto mb-8 max-w-2xl text-lg text-slate-300 sm:text-xl">
+                <p class="mx-auto mb-8 max-w-2xl text-lg text-slate-300 sm:text-xl lang-text"
+                    data-en="A passionate developer crafting beautiful and functional web experiences. I turn ideas into reality through code."
+                    data-np="सुन्दर र कार्यात्मक वेब अनुभवहरू बनाउने एक उत्साही डेभलपर। म कोडका माध्यमबाट विचारहरूलाई वास्तविकतामा बदल्छु।">
                     A passionate developer crafting beautiful and functional web experiences.
                     I turn ideas into reality through code.
                 </p>
                 <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <a href="{{ route('projects') }}"
                         class="group inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
-                        View My Work
+                        <span class="lang-text" data-en="View My Work" data-np="मेरो काम हेर्नुहोस्">View My Work</span>
                         <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -78,7 +80,7 @@
                     </a>
                     <a href="{{ route('contact') }}"
                         class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
-                        Get In Touch
+                        <span class="lang-text" data-en="Get In Touch" data-np="सम्पर्क गर्नुहोस्">Get In Touch</span>
                     </a>
                 </div>
             </div>
@@ -89,7 +91,7 @@
     <section id="about" class="border-b border-white/10 bg-slate-900/40 py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="About Me" data-np="मेरो बारेमा">
                     About Me
                 </h2>
                 <div
@@ -98,13 +100,15 @@
             </div>
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
                 <div>
-                    <p class="mb-4 text-lg leading-relaxed text-slate-300">
+                    <p class="mb-4 text-lg leading-relaxed text-slate-300 lang-text"
+                        data-en="{{ $personalinfo->short_bio }}"
+                        data-np="{{ $personalinfo->short_bio_np ?: $personalinfo->short_bio }}">
                         {{$personalinfo->short_bio}}
                     </p>
 
                     <a href="{{ route('about') }}"
                         class="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300">
-                        Learn more about me
+                        <span class="lang-text" data-en="Learn more about me" data-np="मेरो बारेमा थप जान्नुहोस्">Learn more about me</span>
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -119,18 +123,18 @@
                         <div class="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-slate-400">Location:</span>
+                                    <span class="text-slate-400 lang-text" data-en="Location:" data-np="स्थान:">Location:</span>
                                     <span class="font-medium text-white">Kathmandu, Nepal</span>
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-slate-400">Available:</span>
+                                    <span class="text-slate-400 lang-text" data-en="Available:" data-np="उपलब्धता:">Available:</span>
                                     <span
                                         class="font-medium {{ ($personalinfo && $personalinfo->is_available) ? 'text-emerald-400' : 'text-slate-400' }}">
                                         {{ ($personalinfo && $personalinfo->is_available) ? 'Open to work' : 'Not available' }}
                                     </span>
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-slate-400">Email:</span>
+                                    <span class="text-slate-400 lang-text" data-en="Email:" data-np="इमेल:">Email:</span>
                                     <span class="font-medium text-white">karsangmagar19@gmail.com</span>
                                 </div>
                             </div>
@@ -145,7 +149,7 @@
     <section id="experience" class="border-b border-white/10 bg-slate-950 py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="Experience" data-np="अनुभव">
                     Experience
                 </h2>
                 <div
@@ -158,26 +162,33 @@
                         class="group relative rounded-xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-500/30 hover:bg-white/10">
                         <div class="mb-2 flex items-start justify-between">
                             <div>
-                                <h3 class="text-xl font-semibold text-white">
+                                <h3 class="text-xl font-semibold text-white lang-text"
+                                    data-en="{{ $experience->title }}"
+                                    data-np="{{ $experience->title_np ?: $experience->title }}">
                                     {{ $experience->title }}
                                 </h3>
-                                <p class="text-emerald-400">
+                                <p class="text-emerald-400 lang-text"
+                                    data-en="{{ $experience->company }}"
+                                    data-np="{{ $experience->company_np ?: $experience->company }}">
                                     {{ $experience->company }}
                                 </p>
                             </div>
                             <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-medium text-emerald-400">
                                 {{ $experience->start_date }}
                                 -
-                                {{ $experience->is_current ? 'Present' : $experience->end_date }}
+                                <span class="lang-text" data-en="{{ $experience->is_current ? 'Present' : $experience->end_date }}" data-np="{{ $experience->is_current ? 'हालसालै' : $experience->end_date }}">{{ $experience->is_current ? 'Present' : $experience->end_date }}</span>
                             </span>
                         </div>
                         <div
-                            class="text-slate-300 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1">
+                            class="text-slate-300 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1 lang-text"
+                            data-html="true"
+                            data-en="{{ $experience->description }}"
+                            data-np="{{ $experience->description_np ?: $experience->description }}">
                             {!! $experience->description !!}
                         </div>
                     </div>
                 @empty
-                    <p class="text-slate-400">
+                    <p class="text-slate-400 lang-text" data-en="Experience details will be added soon." data-np="अनुभवका विवरणहरू चाँडै थपिनेछन्।">
                         Experience details will be added soon.
                     </p>
                 @endforelse
@@ -185,7 +196,7 @@
             <div class="mt-8 text-center">
                 <a href="{{ route('experience') }}"
                     class="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300">
-                    View full experience
+                    <span class="lang-text" data-en="View full experience" data-np="पूर्ण अनुभव हेर्नुहोस्">View full experience</span>
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -199,7 +210,7 @@
     <section id="projects" class="border-b border-white/10 bg-slate-900/40 py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="Projects" data-np="परियोजनाहरू">
                     Projects
                 </h2>
                 <div
@@ -232,9 +243,14 @@
                                     </a>
                                 @endif
                             </div>
-                            <h3 class="mb-2 text-lg font-semibold text-white">{{ $project->title }}</h3>
+                            <h3 class="mb-2 text-lg font-semibold text-white lang-text"
+                                data-en="{{ $project->title }}"
+                                data-np="{{ $project->title_np ?: $project->title }}">{{ $project->title }}</h3>
                             <div
-                                class="mb-4 text-sm text-slate-300 line-clamp-3 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1">
+                                class="mb-4 text-sm text-slate-300 line-clamp-3 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1 lang-text"
+                                data-html="true"
+                                data-en="{{ $project->description }}"
+                                data-np="{{ $project->description_np ?: $project->description }}">
                                 {!! $project->description !!}
                             </div>
                             <div class="flex flex-wrap gap-2">
@@ -250,7 +266,7 @@
             <div class="mt-8 text-center">
                 <a href="{{ route('projects') }}"
                     class="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300">
-                    View all projects
+                    <span class="lang-text" data-en="View all projects" data-np="सबै परियोजनाहरू हेर्नुहोस्">View all projects</span>
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -264,7 +280,7 @@
     <section id="skills" class="border-b border-white/10 bg-slate-950 py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="Skills & Technologies" data-np="सीपहरू र प्रविधिहरू">
                     Skills & Technologies
                 </h2>
                 <div
@@ -291,9 +307,13 @@
                         <h3 class="mb-2 font-semibold text-white">{{ $config['label'] }}</h3>
                         <p class="text-sm text-slate-400">
                             @if($grouped->has($catName))
-                                {{ $grouped[$catName]->pluck('name')->join(', ') }}
+                                <span class="lang-text"
+                                    data-en="{{ $grouped[$catName]->pluck('name')->join(', ') }}"
+                                    data-np="{{ $grouped[$catName]->map(fn($s) => $s->name_np ?: $s->name)->join(', ') }}">
+                                    {{ $grouped[$catName]->pluck('name')->join(', ') }}
+                                </span>
                             @else
-                                No skills added yet
+                                <span class="lang-text" data-en="No skills added yet" data-np="अहिलेसम्म कुनै सीप थपिएको छैन">No skills added yet</span>
                             @endif
                         </p>
                     </div>
@@ -302,7 +322,7 @@
             <div class="mt-8 text-center">
                 <a href="{{ route('skills') }}"
                     class="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300">
-                    View all skills
+                    <span class="lang-text" data-en="View all skills" data-np="सबै सीपहरू हेर्नुहोस्">View all skills</span>
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -316,10 +336,12 @@
     <section id="contact" class="bg-slate-900/40 py-20">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
-                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lang-text" data-en="Get In Touch" data-np="सम्पर्कमा आउनुहोस्">
                     Get In Touch
                 </h2>
-                <p class="mx-auto max-w-2xl text-lg text-slate-300">
+                <p class="mx-auto max-w-2xl text-lg text-slate-300 lang-text"
+                    data-en="Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together."
+                    data-np="कुनै परियोजना मनमा छ वा सहकार्य गर्न चाहनुहुन्छ? म तपाईंसँग सुन्न उत्सुक छु। सँगै केही अद्भुत बनाऊँ।">
                     Have a project in mind or want to collaborate? I'd love to hear from you.
                     Let's create something amazing together.
                 </p>
@@ -339,7 +361,7 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm text-slate-400">Email</p>
+                            <p class="text-sm text-slate-400 lang-text" data-en="Email" data-np="इमेल">Email</p>
                             <p class="font-medium text-white">karsangmagar19@gmail.com</p>
                         </div>
                     </a>
@@ -353,7 +375,7 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm text-slate-400">Phone</p>
+                            <p class="text-sm text-slate-400 lang-text" data-en="Phone" data-np="फोन">Phone</p>
                             <p class="font-medium text-white">+977-9803665780</p>
                         </div>
                     </a>
@@ -361,7 +383,7 @@
                 <div class="text-center">
                     <a href="{{ route('contact') }}"
                         class="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
-                        Send a Message
+                        <span class="lang-text" data-en="Send a Message" data-np="सन्देश पठाउनुहोस्">Send a Message</span>
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6" />

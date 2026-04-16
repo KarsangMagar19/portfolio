@@ -13,8 +13,15 @@ class SkillForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Name (English)')
                     ->required()
                     ->maxLength(255),
+
+                TextInput::make('name_np')
+                    ->label('Name (नेपाली)')
+                    ->nullable()
+                    ->maxLength(255)
+                    ->helperText('Nepali translation of the skill name.'),
 
                 Select::make('category')
                     ->required()

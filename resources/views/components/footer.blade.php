@@ -5,7 +5,7 @@
             <div class="lg:pl-0">
                 <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
-                    Resume
+                    <span class="lang-text" data-en="Resume" data-np="बायोडाटा">Resume</span>
                 </h3>
                 <a
                     href="{{ route('cv.download') }}"
@@ -16,7 +16,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                     </span>
-                    Download CV
+                    <span class="lang-text" data-en="Download CV" data-np="CV डाउनलोड गर्नुहोस्">Download CV</span>
                 </a>
             </div>
 
@@ -24,7 +24,7 @@
             <div>
                 <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
-                    Contact
+                    <span class="lang-text" data-en="Contact" data-np="सम्पर्क">Contact</span>
                 </h3>
                 <ul class="space-y-3.5">
                     <li>
@@ -69,7 +69,7 @@
             <div class="sm:col-span-2 lg:col-span-1">
                 <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
-                    Connect
+                    <span class="lang-text" data-en="Connect" data-np="जोडिनुहोस्">Connect</span>
                 </h3>
                 <div class="flex flex-wrap gap-2">
                     <a
@@ -121,7 +121,9 @@
         </div>
 
         <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-            <p class="text-sm text-slate-500 text-center">&copy; {{ date('Y') }} All rights reserved.</p>
+            <p class="text-sm text-slate-500 text-center lang-text"
+                data-en="&copy; {{ date('Y') }} All rights reserved."
+                data-np="&copy; {{ date('Y') }} सर्वाधिकार सुरक्षित।">&copy; {{ date('Y') }} All rights reserved.</p>
         </div>
     </div>
 </footer>

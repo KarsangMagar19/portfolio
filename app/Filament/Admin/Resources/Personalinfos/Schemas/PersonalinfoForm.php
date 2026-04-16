@@ -20,10 +20,22 @@ class PersonalinfoForm
                 TextInput::make('last_name')
                     ->required(),
                 Textarea::make('short_bio')
+                    ->label('Short Bio (English)')
                     ->required()
                     ->columnSpanFull(),
+                Textarea::make('short_bio_np')
+                    ->label('Short Bio (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the short bio.')
+                    ->columnSpanFull(),
                 RichEditor::make('long_bio')
+                    ->label('Long Bio (English)')
                     ->required()
+                    ->columnSpanFull(),
+                RichEditor::make('long_bio_np')
+                    ->label('Long Bio (नेपाली)')
+                    ->nullable()
+                    ->helperText('Nepali translation of the long bio.')
                     ->columnSpanFull(),
                 TextInput::make('email')
                     ->label('Email address')

@@ -1,17 +1,17 @@
-<footer class="border-t border-white/10 bg-slate-900/60 backdrop-blur-sm">
+<footer class="border-t border-slate-200/60 dark:border-white/10 bg-slate-100/60 dark:bg-slate-900/60 backdrop-blur-sm transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {{-- Resume --}}
             <div class="lg:pl-0">
-                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
                     <span class="lang-text" data-en="Resume" data-np="बायोडाटा">Resume</span>
                 </h3>
                 <a
                     href="{{ route('cv.download') }}"
-                    class="group inline-flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 ring-1 ring-white/10 transition hover:bg-emerald-500/15 hover:text-emerald-400 hover:ring-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                    class="group inline-flex items-center gap-2.5 rounded-xl bg-slate-200/50 dark:bg-white/5 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 ring-1 ring-slate-200 dark:ring-white/10 transition hover:bg-emerald-500/15 hover:text-emerald-500 dark:hover:text-emerald-400 hover:ring-emerald-500/30 dark:hover:ring-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-colors duration-300"
                 >
-                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 transition group-hover:bg-emerald-500/20">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-200/50 dark:bg-white/5 transition group-hover:bg-emerald-500/20">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
@@ -22,7 +22,7 @@
 
             {{-- Contact --}}
             <div>
-                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
                     <span class="lang-text" data-en="Contact" data-np="सम्पर्क">Contact</span>
                 </h3>
@@ -30,44 +30,44 @@
                     <li>
                         <a
                             href="mailto:karsangmagar19@gmail.com"
-                            class="group flex items-center gap-3 rounded-lg py-1 transition hover:text-emerald-400"
+                            class="group flex items-center gap-3 rounded-lg py-1 transition hover:text-emerald-500 dark:hover:text-emerald-400"
                         >
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition group-hover:bg-emerald-500/15 group-hover:text-emerald-400">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition group-hover:bg-emerald-500/15 group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
-                            <span class="break-all text-sm text-slate-300">{{$personalinfo->email}}</span>
+                            <span class="break-all text-sm text-slate-600 dark:text-slate-300">{{$personalinfo->email}}</span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="tel:+9779803665780"
-                            class="group flex items-center gap-3 rounded-lg py-1 transition hover:text-emerald-400"
+                            class="group flex items-center gap-3 rounded-lg py-1 transition hover:text-emerald-500 dark:hover:text-emerald-400"
                         >
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition group-hover:bg-emerald-500/15 group-hover:text-emerald-400">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition group-hover:bg-emerald-500/15 group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </span>
-                            <span class="text-sm text-slate-300">{{$personalinfo->phone}}</span>
+                            <span class="text-sm text-slate-600 dark:text-slate-300">{{$personalinfo->phone}}</span>
                         </a>
                     </li>
                     <li class="flex items-center gap-3 rounded-lg py-1">
-                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-slate-400">
+                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </span>
-                        <span class="text-sm text-slate-300">Kathmandu, Nepal</span>
+                        <span class="text-sm text-slate-600 dark:text-slate-300">Kathmandu, Nepal</span>
                     </li>
                 </ul>
             </div>
 
             {{-- Connect --}}
             <div class="sm:col-span-2 lg:col-span-1">
-                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                     <span class="mr-1.5 inline-block h-0.5 w-4 rounded bg-emerald-500/60"></span>
                     <span class="lang-text" data-en="Connect" data-np="जोडिनुहोस्">Connect</span>
                 </h3>
@@ -76,7 +76,7 @@
                         href="https://github.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         aria-label="GitHub"
                     >
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,7 +87,7 @@
                         href="https://linkedin.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         aria-label="LinkedIn"
                     >
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -98,7 +98,7 @@
                         href="https://twitter.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         aria-label="Twitter"
                     >
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -109,18 +109,18 @@
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         aria-label="Instagram"
                     >
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.067-.06-1.407-.06-4.123v-.08c0-2.643.012-2.987.06-4.043.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm0 2.225h-.63c-2.098.006-3.115.06-3.957.148-.986.091-1.624.217-2.205.367a2.807 2.807 0 00-1.024.602 2.807 2.807 0 00-.602 1.024c-.15.581-.276 1.22-.367 2.205-.087.842-.142 1.859-.148 3.957v.63c.006 2.098.06 3.115.148 3.957.091.986.217 1.624.367 2.205.14.422.337.802.602 1.024.222.265.602.462 1.024.602.581.15 1.22.276 2.205.367.842.087 1.859.142 3.957.148h.63c2.098-.006 3.115-.06 3.957-.148.986-.091 1.624-.217 2.205-.367a2.807 2.807 0 001.024-.602 2.807 2.807 0 00.602-1.024c.15-.581.276-1.22.367-2.205.087-.842.142-1.859.148-3.957v-.63c-.006-2.098-.06-3.115-.148-3.957-.091-.986-.217-1.624-.367-2.205a2.807 2.807 0 00-.602-1.024 2.807 2.807 0 00-1.024-.602c-.581-.15-1.22-.276-2.205-.367-.842-.087-1.859-.142-3.957-.148zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.067-.06-1.407-.06-4.123v-.08c0-2.643.012-2.987.06-4.043.049 1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm0 2.225h-.63c-2.098.006-3.115.06-3.957.148-.986.091-1.624.217-2.205.367a2.807 2.807 0 00-1.024.602 2.807 2.807 0 00-.602 1.024c-.15.581-.276 1.22-.367 2.205-.087.842-.142 1.859-.148 3.957v.63c.006 2.098.06 3.115.148 3.957.091.986.217 1.624.367 2.205.14.422.337.802.602 1.024.222.265.602.462 1.024.602.581.15 1.22.276 2.205.367.842.087 1.859.142 3.957.148h.63c2.098-.006 3.115-.06 3.957-.148.986-.091 1.624-.217 2.205-.367a2.807 2.807 0 001.024-.602 2.807 2.807 0 00.602-1.024c.15-.581.276-1.22.367-2.205.087-.842.142-1.859.148-3.957v-.63c-.006-2.098-.06-3.115-.148-3.957-.091-.986-.217-1.624-.367-2.205a2.807 2.807 0 00-.602-1.024 2.807 2.807 0 00-1.024-.602c-.581-.15-1.22-.276-2.205-.367-.842-.087-1.859-.142-3.957-.148zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
                         </svg>
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-200/60 dark:border-white/10 pt-8 sm:flex-row">
             <p class="text-sm text-slate-500 text-center lang-text"
                 data-en="&copy; {{ date('Y') }} All rights reserved."
                 data-np="&copy; {{ date('Y') }} सर्वाधिकार सुरक्षित।">&copy; {{ date('Y') }} All rights reserved.</p>

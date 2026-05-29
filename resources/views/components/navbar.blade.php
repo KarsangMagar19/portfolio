@@ -10,12 +10,12 @@
     ];
 @endphp
 
-<nav class="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-xl supports-[backdrop-filter]:bg-slate-950/60"
+<nav class="sticky top-0 z-50 w-full border-b border-slate-200/50 dark:border-white/10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 supports-[backdrop-filter]:dark:bg-slate-950/60 transition-colors duration-300"
     aria-label="Main navigation">
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {{-- Logo / brand --}}
         <a href="{{ route('home') }}"
-            class="group flex shrink-0 items-center gap-2 font-semibold tracking-tight text-white transition hover:text-emerald-400">
+            class="group flex shrink-0 items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-white transition hover:text-emerald-500 dark:hover:text-emerald-400">
             <span class="text-lg sm:text-xl">Portfolio</span>
             <span
                 class="h-1.5 w-1.5 rounded-full bg-emerald-400 opacity-0 transition group-hover:opacity-100 group-hover:scale-150"></span>
@@ -29,8 +29,8 @@
                 @endphp
                 <a href="{{ route($link['route']) }}" @class([
                     'relative rounded-lg px-3 py-2 text-sm font-medium transition lang-text',
-                    'text-emerald-400' => $isActive,
-                    'text-slate-300 hover:bg-white/5 hover:text-white' => !$isActive,
+                    'text-emerald-500 dark:text-emerald-400' => $isActive,
+                    'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white' => !$isActive,
                 ])
                     data-en="{{ $link['label'] }}"
                     data-np="{{ $link['label_np'] }}">
@@ -43,14 +43,32 @@
             @endforeach
         </div>
 
-        {{-- Right side: Language Toggle + Mobile Menu --}}
+        {{-- Right side: Theme Toggle + Language Toggle + Mobile Menu --}}
         <div class="flex items-center gap-2">
+            {{-- Theme Toggle Button --}}
+            <button
+                id="theme-toggle-btn"
+                onclick="toggleTheme()"
+                title="Toggle visual theme"
+                class="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 transition hover:bg-emerald-500/20 hover:border-emerald-400/50 hover:text-emerald-600 dark:hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
+                {{-- Sun Icon --}}
+                <svg id="theme-sun" class="hidden h-4.5 w-4.5 shrink-0 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+                {{-- Moon Icon --}}
+                <svg id="theme-moon" class="hidden h-4.5 w-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+
             {{-- Language Toggle Button --}}
             <button
                 id="lang-toggle-btn"
                 onclick="toggleLanguage()"
                 title="Switch language"
-                class="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20 hover:border-emerald-400/50 hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
+                class="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-500 dark:text-emerald-400 transition hover:bg-emerald-500/20 hover:border-emerald-400/50 hover:text-emerald-600 dark:hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
                 <svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
@@ -62,7 +80,7 @@
             <div class="relative md:hidden">
                 <details id="navbar-mobile-details" class="group">
                     <summary
-                        class="flex h-10 w-10 list-none cursor-pointer items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 [&::-webkit-details-marker]:hidden"
+                        class="flex h-10 w-10 list-none cursor-pointer items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 [&::-webkit-details-marker]:hidden"
                         aria-label="Toggle menu">
                         <span class="relative block h-5 w-5">
                             <span class="absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current"></span>
@@ -71,15 +89,15 @@
                         </span>
                     </summary>
                     <div
-                        class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-white/10 bg-slate-900/95 py-2 shadow-xl backdrop-blur-xl">
+                        class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-slate-200 dark:border-white/10 bg-white/95 dark:bg-slate-900/95 py-2 shadow-xl backdrop-blur-xl">
                         @foreach ($navLinks as $link)
                             @php
                                 $isActive = $currentRoute === $link['route'];
                             @endphp
                             <a href="{{ route($link['route']) }}" @class([
                                 'block rounded-lg mx-2 px-4 py-2.5 text-sm font-medium transition lang-text',
-                                'bg-emerald-500/15 text-emerald-400' => $isActive,
-                                'text-slate-300 hover:bg-white/5 hover:text-white' => !$isActive,
+                                'bg-emerald-500/15 text-emerald-500 dark:text-emerald-400' => $isActive,
+                                'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white' => !$isActive,
                             ])
                                 data-en="{{ $link['label'] }}"
                                 data-np="{{ $link['label_np'] }}">
@@ -93,18 +111,48 @@
     </div>
 </nav>
 
-{{-- Language Toggle Script --}}
+{{-- Language & Theme Scripts --}}
 <script>
     (function () {
+        // Theme Toggle Script Integration
+        const THEME_KEY = 'portfolio_theme';
+
+        window.toggleTheme = function() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem(THEME_KEY, 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem(THEME_KEY, 'dark');
+            }
+            updateThemeIcons();
+        };
+
+        function updateThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sunIcon = document.getElementById('theme-sun');
+            const moonIcon = document.getElementById('theme-moon');
+            if (sunIcon && moonIcon) {
+                if (isDark) {
+                    // Show Sun icon in Dark mode (meaning "Click to turn on light mode")
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    // Show Moon icon in Light mode (meaning "Click to turn on dark mode")
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            }
+        }
+
+        // Language Toggle Script
         const STORAGE_KEY = 'portfolio_lang';
 
         function applyLanguage(lang) {
-            // Translate all .lang-text elements
             document.querySelectorAll('.lang-text').forEach(function (el) {
                 const val = el.getAttribute('data-' + lang);
                 if (val !== null) {
-                    // Elements with data-html="true" contain rich HTML (descriptions, bios)
-                    // Use innerHTML so tags render properly instead of showing as raw text
                     if (el.getAttribute('data-html') === 'true') {
                         el.innerHTML = val;
                     } else {
@@ -122,13 +170,11 @@
                 }
             });
 
-            // Translate placeholder text on inputs/textareas
             document.querySelectorAll('[data-placeholder-en]').forEach(function (el) {
                 const val = el.getAttribute('data-placeholder-' + lang);
                 if (val !== null) el.placeholder = val;
             });
 
-            // Update button label
             const btn = document.getElementById('lang-toggle-label');
             if (btn) btn.textContent = lang === 'en' ? 'EN' : 'NP';
 
@@ -141,14 +187,18 @@
             applyLanguage(current === 'en' ? 'np' : 'en');
         };
 
-        // Restore saved preference on every page load
+        // Initialize state on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', function () {
-            const saved = localStorage.getItem(STORAGE_KEY) || 'en';
-            if (saved === 'np') applyLanguage('np');
+            // Apply language preference
+            const savedLang = localStorage.getItem(STORAGE_KEY) || 'en';
+            if (savedLang === 'np') applyLanguage('np');
             else {
                 const btn = document.getElementById('lang-toggle-label');
                 if (btn) btn.textContent = 'EN';
             }
+
+            // Apply theme icons
+            updateThemeIcons();
         });
     })();
 </script>

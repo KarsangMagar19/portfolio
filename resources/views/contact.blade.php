@@ -1,16 +1,16 @@
 <x-layout>
     {{-- Hero Section --}}
-    <section class="relative overflow-hidden border-b border-white/10 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+    <section class="relative overflow-hidden border-b border-slate-200/50 dark:border-white/10 bg-gradient-to-b from-slate-50 via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 transition-colors duration-300">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
         <div class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
             <div class="text-center">
-                <h1 class="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 class="mb-6 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
                     <span class="lang-text" data-en="Get In" data-np="सम्पर्कमा">Get In</span>
-                    <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                    <span class="bg-gradient-to-r from-emerald-500 to-teal-400 dark:from-emerald-400 dark:to-teal-300 bg-clip-text text-transparent">
                         <span class="lang-text" data-en="Touch" data-np="आउनुहोस्">Touch</span>
                     </span>
                 </h1>
-                <p class="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl lang-text"
+                <p class="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300 sm:text-xl lang-text"
                     data-en="Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together."
                     data-np="कुनै परियोजना मनमा छ वा सहकार्य गर्न चाहनुहुन्छ? म तपाईंसँग सुन्न उत्सुक छु। सँगै केही अद्भुत बनाऊँ।">
                     Have a project in mind or want to collaborate? I'd love to hear from you.
@@ -21,21 +21,21 @@
     </section>
 
     {{-- Contact Section --}}
-    <section class="border-b border-white/10 bg-slate-900/40 py-20">
+    <section class="border-b border-slate-200/50 dark:border-white/10 bg-slate-100/40 dark:bg-slate-900/40 py-20 transition-colors duration-300">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-2">
                 {{-- Contact Form --}}
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-                    <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Send a Message" data-np="सन्देश पठाउनुहोस्">Send a Message</h2>
+                <div class="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 backdrop-blur-sm transition-colors duration-300">
+                    <h2 class="mb-6 text-2xl font-bold text-slate-900 dark:text-white lang-text" data-en="Send a Message" data-np="सन्देश पठाउनुहोस्">Send a Message</h2>
 
                     @if (session('success'))
-                        <div class="mb-4 rounded-lg bg-emerald-500/20 px-4 py-3 text-sm text-emerald-200">
+                        <div class="mb-4 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 px-4 py-3 text-sm text-emerald-600 dark:text-emerald-200 border border-emerald-500/20">
                             {{ session('success') }}
                         </div>
                     @endif
 
                     @if ($errors->any())
-                        <div class="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                        <div class="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-200 border border-red-500/20">
                             <ul class="list-disc space-y-1 pl-5">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -47,7 +47,7 @@
                     <form action="{{ route('messageme.store') }}" method="POST" class="space-y-6">
                         @csrf
                         <div>
-                            <label for="name" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Name" data-np="नाम">
+                            <label for="name" class="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300 lang-text" data-en="Name" data-np="नाम">
                                 Name
                             </label>
                             <input
@@ -55,14 +55,14 @@
                                 id="name"
                                 name="name"
                                 required
-                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="w-full rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 data-placeholder-en="Your name"
                                 data-placeholder-np="तपाईंको नाम"
                                 placeholder="Your name"
                             />
                         </div>
                         <div>
-                            <label for="email" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Email" data-np="इमेल">
+                            <label for="email" class="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300 lang-text" data-en="Email" data-np="इमेल">
                                 Email
                             </label>
                             <input
@@ -70,12 +70,12 @@
                                 id="email"
                                 name="email"
                                 required
-                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="w-full rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 placeholder="your.email@example.com"
                             />
                         </div>
                         <div>
-                            <label for="mobile" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Mobile" data-np="मोबाइल">
+                            <label for="mobile" class="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300 lang-text" data-en="Mobile" data-np="मोबाइल">
                                 Mobile
                             </label>
                             <input
@@ -83,14 +83,14 @@
                                 id="mobile"
                                 name="mobile"
                                 required
-                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="w-full rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 data-placeholder-en="Your phone number"
                                 data-placeholder-np="तपाईंको फोन नम्बर"
                                 placeholder="Your phone number"
                             />
                         </div>
                         <div>
-                            <label for="subject" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Subject" data-np="विषय">
+                            <label for="subject" class="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300 lang-text" data-en="Subject" data-np="विषय">
                                 Subject
                             </label>
                             <input
@@ -98,14 +98,14 @@
                                 id="subject"
                                 name="subject"
                                 required
-                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="w-full rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 data-placeholder-en="What's this about?"
                                 data-placeholder-np="यो के बारेमा हो?"
                                 placeholder="What's this about?"
                             />
                         </div>
                         <div>
-                            <label for="message" class="mb-2 block text-sm font-medium text-slate-300 lang-text" data-en="Message" data-np="सन्देश">
+                            <label for="message" class="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300 lang-text" data-en="Message" data-np="सन्देश">
                                 Message
                             </label>
                             <textarea
@@ -113,7 +113,7 @@
                                 name="message"
                                 rows="6"
                                 required
-                                class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="w-full rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition focus:border-emerald-500/50 focus:bg-white dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                                 data-placeholder-en="Tell me about your project or idea..."
                                 data-placeholder-np="आफ्नो परियोजना वा विचारबारे बताउनुहोस्..."
                                 placeholder="Tell me about your project or idea..."
@@ -121,7 +121,7 @@
                         </div>
                         <button
                             type="submit"
-                            class="w-full rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 lang-text"
+                            class="w-full rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 shadow-lg shadow-emerald-500/20 lang-text"
                             data-en="Send Message"
                             data-np="सन्देश पठाउनुहोस्"
                         >
@@ -133,8 +133,8 @@
                 {{-- Contact Info --}}
                 <div class="space-y-8">
                     <div>
-                        <h2 class="mb-6 text-2xl font-bold text-white lang-text" data-en="Contact Information" data-np="सम्पर्क जानकारी">Contact Information</h2>
-                        <p class="mb-8 text-slate-300 lang-text"
+                        <h2 class="mb-6 text-2xl font-bold text-slate-900 dark:text-white lang-text" data-en="Contact Information" data-np="सम्पर्क जानकारी">Contact Information</h2>
+                        <p class="mb-8 text-slate-600 dark:text-slate-300 lang-text"
                             data-en="Feel free to reach out through any of these channels. I typically respond within 24 hours."
                             data-np="यी मध्ये कुनै पनि च्यानलबाट निःसंकोच सम्पर्क गर्नुहोस्। म सामान्यतया २४ घण्टाभित्र प्रतिक्रिया दिन्छु।">
                             Feel free to reach out through any of these channels. I typically respond within 24 hours.
@@ -145,59 +145,59 @@
                         {{-- Email --}}
                         <a
                             href="mailto:karsangmagar19@gmail.com"
-                            class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-500/30 hover:bg-white/10"
+                            class="group flex items-center gap-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 transition hover:border-emerald-500/30 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors duration-300"
                         >
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 transition group-hover:bg-emerald-500/30">
+                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 transition group-hover:bg-emerald-500/20 border border-emerald-500/10">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Email" data-np="इमेल">Email</h3>
-                                <p class="text-slate-300">karsangmagar19@gmail.com</p>
+                                <h3 class="mb-1 font-semibold text-slate-900 dark:text-white lang-text" data-en="Email" data-np="इमेल">Email</h3>
+                                <p class="text-slate-600 dark:text-slate-300 break-all">karsangmagar19@gmail.com</p>
                             </div>
                         </a>
 
                         {{-- Phone --}}
                         <a
                             href="tel:+9779803665780"
-                            class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-500/30 hover:bg-white/10"
+                            class="group flex items-center gap-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 transition hover:border-emerald-500/30 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors duration-300"
                         >
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 transition group-hover:bg-emerald-500/30">
+                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 transition group-hover:bg-emerald-500/20 border border-emerald-500/10">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Phone" data-np="फोन">Phone</h3>
-                                <p class="text-slate-300">+977-9803665780</p>
+                                <h3 class="mb-1 font-semibold text-slate-900 dark:text-white lang-text" data-en="Phone" data-np="फोन">Phone</h3>
+                                <p class="text-slate-600 dark:text-slate-300">+977-9803665780</p>
                             </div>
                         </a>
 
                         {{-- Location --}}
-                        <div class="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6">
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
+                        <div class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 transition-colors duration-300">
+                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/10">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="mb-1 font-semibold text-white lang-text" data-en="Location" data-np="स्थान">Location</h3>
-                                <p class="text-slate-300">Kathmandu, Nepal</p>
+                                <h3 class="mb-1 font-semibold text-slate-900 dark:text-white lang-text" data-en="Location" data-np="स्थान">Location</h3>
+                                <p class="text-slate-600 dark:text-slate-300">Kathmandu, Nepal</p>
                             </div>
                         </div>
                     </div>
 
                     {{-- Social Links --}}
                     <div class="pt-6">
-                        <h3 class="mb-4 text-lg font-semibold text-white lang-text" data-en="Connect on Social Media" data-np="सामाजिक सञ्जालमा जोडिनुहोस्">Connect on Social Media</h3>
+                        <h3 class="mb-4 text-lg font-semibold text-slate-900 dark:text-white lang-text" data-en="Connect on Social Media" data-np="सामाजिक सञ्जालमा जोडिनुहोस्">Connect on Social Media</h3>
                         <div class="flex gap-3">
                             <a
                                 href="https://github.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-colors duration-300"
                                 aria-label="GitHub"
                             >
                                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-colors duration-300"
                                 aria-label="LinkedIn"
                             >
                                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@
                                 href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-colors duration-300"
                                 aria-label="Twitter"
                             >
                                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -230,7 +230,7 @@
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                                class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-500 dark:text-slate-400 transition hover:scale-105 hover:bg-emerald-500/20 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-colors duration-300"
                                 aria-label="Instagram"
                             >
                                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

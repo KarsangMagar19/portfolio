@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Support manual class-based theme toggling in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -152,3 +155,48 @@
 .animate-float-particle-slow {
     animation: float-particle-slow 20s ease-in-out infinite;
 }
+
+/* ==========================================
+   🌌 PREMIUM 3D TRANSITION & SCROLL UTILITIES
+   ========================================== */
+
+/* 3D Scroll Reveal Elements */
+.reveal-3d {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(12deg) translateY(35px) scale(0.96);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-3d.active {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+}
+
+/* Page Entry 3D Animation */
+@keyframes page-entry-3d {
+    from {
+        opacity: 0;
+        transform: perspective(1200px) translateZ(-50px) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(1200px) translateZ(0) translateY(0);
+    }
+}
+
+.page-transition-3d {
+    animation: page-entry-3d 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive 3D Card Hover Tilt */
+.tilt-3d {
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s ease-out;
+    transform-style: preserve-3d;
+}
+
+.tilt-3d > * {
+    transform: translateZ(15px);
+    backface-visibility: hidden;
+}
+
